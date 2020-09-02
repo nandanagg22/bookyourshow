@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "044f021e-020d-45a4-aeb7-b3517cbc2dbd",
+		"name": "bms-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List Cities",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/v1/city"
+			},
+			"response": []
+		},
+		{
+			"name": "List Theatres By City",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/theatre?city=Bangalore",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"theatre"
+					],
+					"query": [
+						{
+							"key": "city",
+							"value": "Bangalore"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Shows by Theatre",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/show?theatreId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"show"
+					],
+					"query": [
+						{
+							"key": "theatreId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List All Seats for a show",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/v1/show/1/seats"
+			},
+			"response": []
+		},
+		{
+			"name": "List All Bookings",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/v1/show/1/booking"
+			},
+			"response": []
+		},
+		{
+			"name": "List All Bookings In Progress",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/v1/show/1/booking"
+			},
+			"response": []
+		},
+		{
+			"name": "POST create Order/ book seats (user1)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"showId\" : 1, \r\n    \"userEmail\" : \"nandanagg@hmail.com\",\r\n    \"seatNumbers\" : [\"A1\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/v1/order"
+			},
+			"response": []
+		},
+		{
+			"name": "POST create Order/ book seats (user2)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \r\n    \"showId\" : 1, \r\n    \"userEmail\" : \"nandanagg@tmail.com\",\r\n    \"seatNumbers\" : [\"A1\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/v1/order"
+			},
+			"response": []
+		},
+		{
+			"name": "Mark Booking Completed",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/show/1/booking/1?status=BOOKED",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"show",
+						"1",
+						"booking",
+						"1"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "BOOKED"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
