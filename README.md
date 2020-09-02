@@ -17,3 +17,5 @@
 1. To mock concurrent access on the booking flow, a *latency()* method is added to *BookingServiceImpl*
 2. This will sleep the current thread for 5 seconds to give enough room to send multiple calls 
 3. Uncomment line number 42 in *BookingServiceImpl* to enable latency
+
+see : *api-endpoints.md*
